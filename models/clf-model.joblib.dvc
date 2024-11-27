@@ -1,0 +1,5 @@
+outs:
+- md5: a0b0b895c22fe1a5a7bd2afc9b911aaf
+  size: 3473343
+  hash: md5
+  path: clf-model.joblib
