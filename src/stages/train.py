@@ -16,6 +16,9 @@ from sklearn.preprocessing import StandardScaler
 from utils.load_params import load_params
 from xgboost import XGBClassifier
 
+import mlflow
+
+
 
 def train(params):
     processed_data_dir = Path(params.data_split.processed_data_dir)
@@ -52,6 +55,18 @@ def train(params):
     )
 
     model.fit(X_train, y_train)
+
+    mlflow.set_tracking_uri(uri="http://127.0.0.1:5000")
+
+    mlflow.set_experiment("MLflow Quickstart")
+
+    with mlflow.start_run():
+        mlflow.log_param("n_estimators", 110)
+        mlflow.log_param("max_depth", 10)
+        mlflow.sklearn.log_model(model, "model")
+
+
+
     dump(model, model_path)
 
 

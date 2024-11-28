@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/538874809134654629/51655ea4ead24a03a3c087edef94afdf/artifacts
+end_time: 1732734539238
+entry_point_name: ''
+experiment_id: '538874809134654629'
+lifecycle_stage: active
+run_id: 51655ea4ead24a03a3c087edef94afdf
+run_name: nervous-donkey-355
+run_uuid: 51655ea4ead24a03a3c087edef94afdf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732734537555
+status: 3
+tags: []
+user_id: apple
