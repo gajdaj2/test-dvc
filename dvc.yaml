@@ -9,6 +9,16 @@ stages:
     - data_split
     outs:
     - data/processed
+  train:
+    cmd: python src/stages/train.py --config=params.yaml
+    deps:
+    - src/stages/train.py
+    - data/processed
+    params:
+    - base
+    - train
+    outs:
+    - models/clf-model.joblib
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
     deps:

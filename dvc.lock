@@ -94,3 +94,46 @@ stages:
       hash: md5
       md5: ae76cc7d9348252b31fdfbdf9f921fb3
       size: 10363
+  train:
+    cmd: python src/stages/train.py --config=params.yaml
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 87842107333ddcbe74af0620057c8219.dir
+      size: 722283
+      nfiles: 4
+    - path: src/stages/train.py
+      hash: md5
+      md5: 92cd56967af0b42a570cdab8a4b0c39c
+      size: 2229
+    params:
+      params.yaml:
+        base:
+          project: bank_customer_churn
+          raw_data_dir: data/raw
+          countries:
+          - France
+          - Spain
+          feat_cols:
+          - CreditScore
+          - Age
+          - Tenure
+          - Balance
+          - NumOfProducts
+          - HasCrCard
+          - IsActiveMember
+          - EstimatedSalary
+          targ_col: Exited
+          random_state: 42
+        train:
+          model_type: randomforest
+          model_dir: models
+          model_path: models/clf-model.joblib
+          params:
+            n_estimators: 100
+            max_depth: 20
+    outs:
+    - path: models/clf-model.joblib
+      hash: md5
+      md5: 1d9d21086ac956bb8209545d4e512647
+      size: 11277720

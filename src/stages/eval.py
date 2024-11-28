@@ -1,11 +1,15 @@
 import sys
 
 
-from src.utils.load_params import load_params
+#from src.utils.load_params import load_params
 from pathlib import Path
+
+from src.utils.load_params import load_params
 
 src_path = Path(__file__).parent.parent.resolve()
 sys.path.append(str(src_path))
+
+
 
 import argparse
 import json
